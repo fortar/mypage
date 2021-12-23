@@ -16,10 +16,13 @@
         $.ajax({
           type: "get",
           url: url,
-          dataType: "json",
           success: function (response) {
             console.log(111, response);
-          }
+          },
+          xhrFields: {
+            withCredentials: true    // 此字段标识要跨域传数据
+          },
+          crossDomain: true
         });
         var myChart = echarts.init(document.getElementById('main'));
 
